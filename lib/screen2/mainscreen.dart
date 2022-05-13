@@ -154,7 +154,11 @@ class _MainScreenState extends State<MainScreen> {
                                         Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: Text(
-                                            note.title,
+                                            note.title.length > 9
+                                                ? '${note.title.substring(0, 8)}...'
+                                                : note.title.substring(0, 9),
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
                                             style: TextStyle(fontSize: 18),
                                           ),
                                         ),
@@ -331,7 +335,9 @@ class _MainScreenState extends State<MainScreen> {
                                       Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Text(
-                                          note.title,
+                                          note.title.length > 9
+                                              ? '${note.title.substring(0, 8)}...'
+                                              : note.title.substring(0, 9),
                                           style: TextStyle(fontSize: 18),
                                         ),
                                       ),
